@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+	<header>
+		<name>The Record Store</name>
+		<place>Odense, Denmark</place>
+	</header>
+
+	<detail>
+		
+		<prod>
+			<productid>Sonic Youth</productid>
+			<productdescription>OZ '93 Tour Edition</productdescription>
+			<price>152,00</price>
+			<currency>DKR</currency>
+		</prod>	
+
+		<prod>
+			<productid>Japandroids</productid>
+			<productdescription>Post-Nothing</productdescription>
+			<price>36.12</price>
+			<currency>$</currency>
+		</prod>	
+		
+		<prod>
+			<productid>The Mountain Goats</productid>
+			<productdescription>All Eternals Deck</productdescription>
+			<price>165.50</price>
+			<currency>SEK</currency>
+		</prod>	
+		
+		<prod>
+			<productid>Biff Bang Pow!</productid>
+			<productdescription>The Girl Who Runs The Beat Hotel</productdescription>
+			<price>250,00</price>
+			<currency>DKR</currency>
+		</prod>		
+	</detail>	
+</data>

@@ -1,0 +1,25 @@
+#detaildata {
+	margin: auto;
+    display: table;
+	border: 1px solid #fff;
+
+}
+
+#row  {
+    display: table-row;
+}
+
+#datacell {
+    display: table-cell;
+	padding: 5px 2px 5px 2px;
+	width: 300px;	
+	border: 1px solid #fff;			
+}
+
+.bg_on {
+	background: #e8e8e8;
+}
+
+.bg_off {
+	background: #c0c0c0;
+}

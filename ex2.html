@@ -1,0 +1,138 @@
+<?php
+//======================================================================================
+//
+// Company : MCpressOnline.com
+// Function: Parse XML with jQuery
+// 
+// Programmer: Jan Jorgensen
+// Date      : 2011-06-19
+//
+// Copyright mcpressonline.com (c) - 2011
+//======================================================================================
+
+//======================================================================================
+// Init fields (Should be move to include scripts)
+//======================================================================================
+
+?>
+<html>
+<head>
+
+<title>Parse XML with jQuery</title>
+
+	<link href="css/layout.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="javascript/jquery.js"></script>	
+
+<script LANGUAGE="JavaScript" TYPE="text/javascript"> 
+<!--
+
+//==============================================================================
+// Find place born
+//==============================================================================
+function GetData()
+{	
+		var toggle = false;
+		var c = 0;
+
+		$.ajax({
+			type: "GET",
+			url: "getXMLdata.xml",
+			dataType: "xml",
+			cache: false,
+			success: function(xml) {
+
+			// Get header data
+				var name = $(xml).find('name').text();
+				var place = $(xml).find('place').text();
+				
+				$('#headername').html('<b>' + name + '</b>');
+				$('#headerplace').html(place);
+			
+		
+			// Reset detail div
+			$('#detaildata').text('');
+
+			// Loop through the detaildata and find all prod nodes
+			$(xml).find('prod').each(function(){
+			
+				// Move detail data into internal variables							
+				var productid = $(this).find('productid').text();
+				var productdescription = $(this).find('productdescription').text();
+				var price = $(this).find('price').text();
+				var currency = $(this).find('currency').text();
+				
+				c++
+				
+				// Write out the data and add some CSS on the way
+				$('#detaildata').append(
+					"<div id=" + c + ">" +
+					"<div id=row>" +
+					"<div id=datacell><b>" + productid + "</b></div>" +
+					"<div id=datacell>" + productdescription  + "</div>" +
+					"<div id=datacell>" + price + "</div>" +
+					"<div id=datacell>" + currency + "</div>" +
+					"</div>" +
+					"</div>" +
+					"</div>\n"
+					);
+					
+				if ( toggle == false ) {
+					$('#' + c).addClass('bg_on');						
+					toggle = true;
+				} else {
+					$('#' + c).addClass('bg_off');						
+					toggle = false;			
+				}
+				
+			});			
+			
+			
+			},
+			error: function() {
+			
+				alert('Cannot find parse data')
+			
+			}
+		});	
+	
+}
+
+	
+//=============================================================================
+// Init jQuery
+//=============================================================================
+$(document).ready(function() { 		
+
+
+
+});
+-->
+</script>
+
+</head>
+
+<body>
+
+
+
+
+<center>
+
+<button type="button" onClick="GetData()">Get XML data</button>
+
+
+<br>
+<br>
+
+<div id="headername"></div>
+<div id="headerplace"></div>
+<div style="font-size:12px" id="headertimestamp"></div>
+<br>
+
+<div id="detaildata"></div>
+
+</center>
+
+</body>
+</html>
+
